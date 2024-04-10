@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: white;
+} 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+*::selection{
+    background-color: #fff;
+    color: aqua;
+}
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+    background-color:aqua;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #f21ad1;
+    border-radius: 50px;
+}
+#cursor{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(0, 255, 255);
+    position: fixed;
+    z-index: 99;
+}
+#cursor-blur{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: rgb(195, 239, 239);
+    position: fixed;
+    filter: blur(50px);
+    z-index: 9;
+}
+#nav{
+    height: 150px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding:0 150px ;
+    gap: 40px;
+    position: fixed;
+    z-index: 99;
+}
+
+#nav img{
+    height: 65px;
+    border-radius: 30%;
+    width: 80px;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+}
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.389);
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+#page1 h1{
+    font-size: 150px;
+    font-weight: 900;
+    margin-top: 20px;
+    position: relative;
+}
+/* Psuedo elements */ 
+#page1 h1::before{
+    content: "EAT.WORK.REST.";
+    position: absolute;
+    color: rgb(20, 198, 229);
+    top: -5px;
+    left: -5px;
+    -webkit-text-stroke: 2px rgb(25, 105, 218);
+}
+#page1 h2{
+    font-size: 50px;
+    font-weight: 800;
+    margin-top:  10px;
+    margin-bottom: 20px ;
+}
+#page1 p{
+    font-size: 25px;
+    font-weight: 500;
+    width: 40%;
+}
+#page1 #arrow{
+    height: 250px;
+    width: 250px;
+    background-color: transparent;
+    border: 2px solid aqua;
+    position: absolute;
+    left: -2%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+}
+#page1 #arrow i{
+    font-size: 50px;
+    font-weight: 200;
+}
+#page1 #arrow:hover{
+    scale: 0.4;
+    background-color: aqua;
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#scroller h4{
+    display: inline-block;
+    font-size: 130px;
+    font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 10px;
+    transition: all linear 0.5s;
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(72, 154, 209);
+}
+#scroller h4:hover{
+    color: aqua;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#about-us{
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+}
+#about-us img{
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 80%;
+    text-align: center;
+}
+#about-us-in h3{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+#about-us-in p{
+    font-size: 20px;
+    /* line-height: 26px; */
+}
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:80px;
+    position: relative;
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 22%;
+    /* background-color: violet; */
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.6s;
+}
+#card1{
+    background-image: url(https://images.pexels.com/photos/68421/pexels-photo-68421.jpeg?auto=compress&cs=tinysrgb&w=400);
+}
+#card2{
+    background-image: url(https://media.istockphoto.com/id/458411711/photo/ice-climbing.jpg?s=612x612&w=0&k=20&c=DQ7hpkr3rV2LGz7qp9rSK-igd0Y8uLrtT5qVKJsBKQE=);
+}
+#card3{
+    background-image: url(https://media.istockphoto.com/id/685615806/photo/coffee-cup-on-bamboo-coaster-and-wooden-balcony-with-mountain-view-on-the-morning.jpg?s=612x612&w=0&k=20&c=ZHb0vdPhWexXifXskvAZW-shQd7et-s-vjyPAxCk5ak=);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    padding-top: 160px;
+    padding: 30px;
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+.overlay h4{
+    color: #000;
+    font-size: 40px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.overlay p{
+    color: #000;
+    font-size: 18px;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(1,1,0,20deg);
+}
+#div{
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    justify-content: center;
+    /* background-color: blue; */
+    position: relative;
+    z-index: 9;
+    background: linear-gradient(to right bottom,yellow,black);
+}
+#div h4{
+    text-transform: uppercase;
+    width: 50%;
+    font-size: 23px;
+    font-weight: 800;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#page3>p{
+    font-size: 40px;
+    font-weight: 700;
+    width: 55%;
+    text-align: center;
+    line-height: 45px;
+    position: relative;
+    z-index: 10;
+    /* position relative and zindex 10 ila together ga isthe blur dhi venulakaki velthundhi and main dhi medhiki vasthundhi */
+}
+#page3 img{
+    position: absolute;
+    height: 60px;
+}
+#page3 #one{
+    left: 15%;
+    top: 30%;
+}
+#page3 #two{
+    bottom: 35%;
+    right: 15%;
+}
+#page4{
+    height: 50vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+.elem{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 800;
+    position: absolute;
+    z-index: 10;
+    transition: all ease 0.5s;
+}
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+    /* position: relative; */
+    z-index: 10;
+}
+.elem:hover h2{
+    color: white;
+    background-color: transparent;
+}
+.elem:hover img{
+   scale: 1;
+}
+#page4 h1{
+    font-size: 80px;
+    position: absolute;
+    top: -8%;
+    font-weight: 900;
+    color: #000;
+    -webkit-text-stroke: 2px white;
+}
+#footer{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom,red,blue);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6.5vw;
+    padding: 0 100px;
+}
+#footer > img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+#f1 img{
+    height: 100px;
+    border-radius: 10px;
+}
+#f1,#f2,#f3,#f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+}
+#f3 h3{
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+#f4 h4{
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    line-height: 40px;
+    margin-bottom: 8px;
+}
